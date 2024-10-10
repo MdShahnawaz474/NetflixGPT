@@ -34,9 +34,11 @@ const Body = () => {
             photoURL: photoURL,
           })
         );
+        navigate("/browse")
       } else {
         //User Signed Out
         dispatch(removeUser());
+        navigate("/");
       }
     });
   }, []);

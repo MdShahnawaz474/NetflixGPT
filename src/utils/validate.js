@@ -22,3 +22,11 @@ export const checkValidData = (email, pass) => {
     // if(!isNameValid)  return "Name is not valid";
     return null; // Return null if both email and password are valid
   };
+
+  export const API_OPTIONS={
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYzBlNjE0ODFkODU4YjJiZGM4YWMxYjliODkxOWQ5MCIsIm5iZiI6MTcyODU1ODI2NS40NjExMDUsInN1YiI6IjY3MDdhZjVhZDA2MTZjN2IxOWZiNTY0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.18k3WbtW9nvPnCYozhjzq6mOn1c0YQbd0CbJB99DBnA'
+    }
+  };

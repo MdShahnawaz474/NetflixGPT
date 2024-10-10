@@ -22,26 +22,8 @@ const Body = () => {
     },
   ]);
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const { uid, email, displayName, photoURL } = user;
-        dispatch(
-          addUser({
-            uid: uid,
-            email: email,
-            displayName: displayName,
-            photoURL: photoURL,
-          })
-        );
-        navigate("/browse")
-      } else {
-        //User Signed Out
-        dispatch(removeUser());
-        navigate("/");
-      }
-    });
-  }, []);
+  
+
 
   return (
     <div>

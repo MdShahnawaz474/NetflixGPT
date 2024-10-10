@@ -7,11 +7,12 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
+import { PHOTO_URL } from "../utils/constant";
 
 const Login = () => {
-  const navigate = useNavigate();
+ 
   const dispatch = useDispatch();
 
 
@@ -46,8 +47,8 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://imgs.search.brave.com/-IydJQZNs0NIimtg6iQpNRN_4HJm_1cj1JcylMXSFc0/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9hdmF0YXItcmVz/b3VyY2luZy1jb21w/YW55XzEyNTQ5Njct/NjY1My5qcGc_c2l6/ZT02MjYmZXh0PWpw/Zw",
+            photoURL:PHOTO_URL
+             ,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -59,7 +60,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -81,8 +81,7 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
+         
         })
         .catch((error) => {
           const errorCode = error.code;
